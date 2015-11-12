@@ -1,0 +1,18 @@
+Breakpoint error bands
+
+There are several different methods for computing error bands on
+estimated breakpoint locations (TODO precise refs):
+- Bayesian (Rigaill et al)
+- paper on my desk that references Rigaill et al
+
+The idea of this paper is that we can quantitatively evaluate which of
+these two methods is more appropriate for a given data set, using
+labels defined on pairs of 1breakpoint regions. Each label says "this
+breakpoint clearly has a smaller error band than this other
+breakpoint" e.g.
+http://bioviz.rocq.inria.fr/profile/GSM314024/1/?width=ipad
+
+This will not work if one of the methods for computing error bands is
+a monotonic transformation of the other. For example if the 90% error
+bands of method 1 are always smaller than the 90% error bands of
+method 2, than they will have the same number of incorrect labels.
