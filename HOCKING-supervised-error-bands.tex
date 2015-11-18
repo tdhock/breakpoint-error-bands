@@ -1,0 +1,31 @@
+\documentclass{article}
+
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{natbib}
+
+\begin{document}
+
+\section{Introduction}
+
+There are several methods for computing error bands around estimated
+breakpoint locations \citep{Rigaill,Luong}.
+
+\section{Methods}
+
+The goal of this paper is to quantitatively compare these models in
+real data sets with labels on pairs of 1breakpoint regions: ``this
+breakpoint obviously should have a larger error band than this other
+one.'' 
+
+\includegraphics[width=\textwidth]{figure-labels-5}
+
+We can compute the number of incorrect labels for any model. TODO:
+compute models for postCP and bcp, and compute the number of incorrect
+labels. QUESTION: do these methods have are parameter that needs to be
+learned? Train/test split?
+
+\bibliographystyle{abbrvnat}
+\bibliography{refs}
+
+\end{document}
