@@ -1,0 +1,11 @@
+# Each line is a profile with a good segmentation 
+# for tdhock5@gmail.com, the indices refer to
+# 1breakpoint regions. 1 < 2 means the breakpoint in
+# the second 1breakpoint region has a bigger error
+# band than the breakpoint in the first 1breakpoint region.
+chrom.url larger smaller
+http://bioviz.rocq.inria.fr/profile/GSM313803/2/ 1 2
+http://bioviz.rocq.inria.fr/profile/GSM313801/3/ 2 1
+http://bioviz.rocq.inria.fr/profile/GSM313801/11/ 1 2
+http://bioviz.rocq.inria.fr/profile/GSM313803/5/ 1 2
+http://bioviz.rocq.inria.fr/profile/GSM313804/6/ 3 2
