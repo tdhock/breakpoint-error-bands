@@ -9,7 +9,10 @@
 \section{Introduction}
 
 There are several methods for computing error bands around estimated
-breakpoint locations \citep{Rigaill,Luong}.
+breakpoint locations \citep{Rigaill, Luong}.
+
+\citet{Erdman} proposed a Bayesian change-point method but it can not
+be used to compute confidence bands.
 
 \section{Methods}
 
@@ -20,10 +23,22 @@ one.''
 
 \includegraphics[width=\textwidth]{figure-labels-5}
 
-We can compute the number of incorrect labels for any model. TODO:
-compute models for postCP and bcp, and compute the number of incorrect
-labels. QUESTION: do these methods have are parameter that needs to be
-learned? Train/test split?
+Using these labels we can compute an error function for any model (the
+number of incorrect labels).
+
+In models.R I tried to compute models using postCP and EBS packages,
+but ran into some problems:
+\begin{itemize}
+\item postCP: matrix of zeros for confidence intervals.
+\item EBS: too slow for $N>10000$ data points to
+  segment. \citet{Rigaill} claims $O(KN^2)$ time complexity where $K$
+  is the maximum number of segments. QUESTION: what about memory?
+\end{itemize}
+QUESTION: is there any existing method with an implementation that
+works in practice for $N>10000$ data points?
+
+QUESTION: do these methods have a parameter that needs to be learned?
+Train/test split?
 
 \bibliographystyle{abbrvnat}
 \bibliography{refs}
