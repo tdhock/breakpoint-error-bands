@@ -3,11 +3,12 @@ Breakpoint error bands
 There are several different methods for computing error bands on
 estimated breakpoint locations
 
-| paper         | package | status                  | time      |
-|---------------+---------+-------------------------+-----------|
-| [[http://link.springer.com/article/10.1007%252Fs11222-011-9258-8][Rigaill et al]] | [[https://cran.r-project.org/web/packages/EBS/index.html][EBS]]     | too slow, emailed Alice | $O(KN^2)$ |
-| [[http://www.sciencedirect.com/science/article/pii/S0167947313002326][Luong et al]]   | [[https://cran.r-project.org/src/contrib/Archive/postCP/][postCP]]  | buggy, emailed authors  | $O(N)$    |
-| [[http://bioinformatics.oxfordjournals.org/content/24/19/2143.abstract][Erdman et al]]  | [[https://cran.r-project.org/web/packages/bcp/index.html][bcp]]     | not appropriate         | $O(N)$    |
+| paper         | package | status                  | time        |
+|---------------+---------+-------------------------+-------------|
+| [[http://link.springer.com/article/10.1007%252Fs11222-011-9258-8][Rigaill et al]] | [[https://cran.r-project.org/web/packages/EBS/index.html][EBS]]     | too slow, emailed Alice | $O(KN^2)$   |
+| [[http://www.sciencedirect.com/science/article/pii/S0167947313002326][Luong et al]]   | [[https://cran.r-project.org/src/contrib/Archive/postCP/][postCP]]  | buggy, emailed authors  | $O(N)$      |
+| [[http://bioinformatics.oxfordjournals.org/content/24/19/2143.abstract][Erdman et al]]  | [[https://cran.r-project.org/web/packages/bcp/index.html][bcp]]     | not appropriate         | $O(N)$      |
+| [[http://onlinelibrary.wiley.com/doi/10.1111/rssb.12047/abstract][Frick et al]]   | [[https://cran.r-project.org/package%3DstepR][stepR]]   | code works              | [[http://www.lancs.ac.uk/~maidston/maidstonepickering2013.pdf][near-linear]] |
 
 Memory complexity is not discussed in any of the articles.
 

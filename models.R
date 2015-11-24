@@ -2,6 +2,7 @@ works_with_R("3.2.2",
              data.table="1.9.6",
              bcp="4.0.0",
              EBS="3.0",
+             stepR="1.0.3",
              postCP="1.7.2") # Archived.
 
 load("data.by.type.RData")
@@ -22,6 +23,13 @@ last.dt <- over.dt[, list(
 last.index.vec <- last.dt[-.N, last.i]
 data.vec <- probes$logratio
 
+## Seems like smuceR works.
+fit <- smuceR(data.vec, confband=TRUE)
+plot(data.vec)
+lines(fit, col="green")
+bands <- jumpint(fit)
+points(bands, col="green")
+
 ## Takes 8GB of RAM and is slow...
 set.seed(1)
 data.vec <- rnorm(17147)
@@ -35,6 +43,8 @@ fit <- EBSegmentation(data.vec,model=1,Kmax=20)
 
 ## Col: a matrix of size (length+1)*Kmax. Element [i,j] is the
 ## log-probability of interval [i,n] being segmented in j segments
+
+## This code was copied from EBS::EBSDistrib
 model.segments <- 5
 break.i <- 2
 t.vec <- (break.i + 1):(length(data.vec) - (model.segments - break.i))

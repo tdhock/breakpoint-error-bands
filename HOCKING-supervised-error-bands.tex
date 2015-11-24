@@ -14,6 +14,12 @@ breakpoint locations \citep{Rigaill, Luong}.
 \citet{Erdman} proposed a Bayesian change-point method but it can not
 be used to compute confidence bands.
 
+\citet{Nam2012,Aston2012} show probability plots that we may be able
+to use to compute error bands, but they do not mention any
+implementation. 
+
+TODO: ask Killick!
+
 \section{Methods}
 
 The goal of this paper is to quantitatively compare these models in
@@ -36,6 +42,8 @@ but ran into some problems:
 \end{itemize}
 QUESTION: is there any existing method with an implementation that
 works in practice for $N>10000$ data points?
+
+YES: stepR::smuceR \citep{multiscale}.
 
 QUESTION: do these methods have a parameter that needs to be learned?
 Train/test split?
