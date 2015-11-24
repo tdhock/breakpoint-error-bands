@@ -19,7 +19,7 @@ breakpoint, as in postCP (buggy, returns matrix of zeros for =cp.est=)
 and EBS (too slow, quadratic time complexity).
 
 The idea of this paper is that we can quantitatively evaluate which
-method is more appropriate for a given data set, using labels defined
+method is most appropriate for a given data set, using labels defined
 on pairs of 1breakpoint regions. Each label says "this breakpoint
 clearly has a smaller error band than this other breakpoint" e.g.
 http://bioviz.rocq.inria.fr/profile/GSM314024/1/?width=ipad
