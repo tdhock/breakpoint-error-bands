@@ -1,4 +1,4 @@
-HOCKING-supervised-error-bands.pdf: HOCKING-supervised-error-bands.tex figure-labels-5.png
+HOCKING-supervised-error-bands.pdf: HOCKING-supervised-error-bands.tex figure-labels-5.png refs.bib
 	rm -f *.aux *.bbl
 	pdflatex HOCKING-supervised-error-bands
 	bibtex HOCKING-supervised-error-bands

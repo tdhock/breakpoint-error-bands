@@ -3,8 +3,30 @@
 \usepackage{fullpage}
 \usepackage{graphicx}
 \usepackage{natbib}
+\usepackage{amsmath,amssymb}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\sign}{sign}
+\DeclareMathOperator*{\Lik}{Lik}
+\DeclareMathOperator*{\Peaks}{Peaks}
+\DeclareMathOperator*{\HotSpots}{HotSpots}
+\newcommand{\Cost}{\text{Cost}}
+\usepackage{stfloats}
+\DeclareMathOperator*{\Diag}{Diag}
+\DeclareMathOperator*{\TPR}{TPR}
+\DeclareMathOperator*{\Segments}{Segments}
+\DeclareMathOperator*{\FPR}{FPR}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\maximize}{maximize}
+\DeclareMathOperator*{\minimize}{minimize}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\RR}{\mathbb R}
 
 \begin{document}
+
+\title{Comparing models for computing breakpoint error bands}
+\author{Toby Dylan Hocking}
+\maketitle
 
 \section{Introduction}
 
@@ -18,8 +40,6 @@ be used to compute confidence bands.
 to use to compute error bands, but they do not mention any
 implementation. 
 
-TODO: ask Killick!
-
 \section{Methods}
 
 The goal of this paper is to quantitatively compare these models in
@@ -32,7 +52,7 @@ one.''
 Using these labels we can compute an error function for any model (the
 number of incorrect labels).
 
-In models.R I tried to compute models using postCP and EBS packages,
+In \verb|models.R| I tried to compute models using postCP and EBS packages,
 but ran into some problems:
 \begin{itemize}
 \item postCP: matrix of zeros for confidence intervals.
@@ -41,9 +61,24 @@ but ran into some problems:
   is the maximum number of segments. QUESTION: what about memory?
 \end{itemize}
 QUESTION: is there any existing method with an implementation that
-works in practice for $N>10000$ data points?
+works in practice for $N>10000$ data points? 
 
-YES: stepR::smuceR \citep{multiscale}.
+Waiting to hear back from Rebecca Killick about her PELT-based
+method. Guillem says that Segmentor3IsBack can be used by running it
+in both directions as in Figure~1 of \citep{segmentor3arxiv}. However
+for both methods I think the problem is the cost representation. How
+to convert it to a probabilistic representation?
+
+The critical criterion can be understood as follows. If we have $N$
+data in a vector $\mathbf y\in\RR^N$, and we fit a model $\mathbf{\hat
+  y}^K\in\RR^N$ with $K$ segments, then for each change-point
+$k\in\{1, \dots, K-1\}$ we want a vector of estimated probabilities
+$\mathbf{\hat p}^k\in[0,1]^N$ such that $\mathbf
+1^\intercal\mathbf{\hat p}^k = 1$. Then for each change-point $k$ we
+define its 90\% confidence interval such that there is 5\% probability
+to the left, and 5\% probability to the right.
+
+YES: \verb|stepR::smuceR| \citep{multiscale}.
 
 QUESTION: do these methods have a parameter that needs to be learned?
 Train/test split?
